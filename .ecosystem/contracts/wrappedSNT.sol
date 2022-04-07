@@ -632,45 +632,45 @@ contract ERC20Pausable is ERC20, Pausable {
     }
 }
 
-contract WrappedNbx is ERC20, ERC20Detailed, ERC20Pausable {
+contract WrappedSnt is ERC20, ERC20Detailed, ERC20Pausable {
     // Error Code: No error.
     uint256 public constant ERR_NO_ERROR = 0x0;
 
     // Error Code: Non-zero value expected to perform the function.
     uint256 public constant ERR_INVALID_ZERO_VALUE = 0x01;
 
-    // create instance of the wNBX token
-    constructor () public ERC20Detailed("Wrapped Nebula X", "WNBX", 18) {
+    // create instance of the wSNT token
+    constructor () public ERC20Detailed("Wrapped Nebula X", "WSNT", 18) {
     }
 
-    // deposit wraps received NBX tokens as wNBX in 1:1 ratio by minting
-    // the received amount of NBXs in wNBX on the sender's address.
+    // deposit wraps received SNT tokens as wSNT in 1:1 ratio by minting
+    // the received amount of SNTs in wSNT on the sender's address.
     function deposit() public whenNotPaused payable returns (uint256) {
         // there has to be some value to be converted
         if (msg.value == 0) {
             return ERR_INVALID_ZERO_VALUE;
         }
 
-        // we already received NBXs, mint the appropriate amount of wNBX
+        // we already received SNTs, mint the appropriate amount of wSNT
         _mint(msg.sender, msg.value);
 
         // all went well here
         return ERR_NO_ERROR;
     }
 
-    // withdraw unwraps NBX tokens by burning specified amount
-    // of wNBX from the caller address and sending the same amount
-    // of NBXs back in exchange.
+    // withdraw unwraps SNT tokens by burning specified amount
+    // of wSNT from the caller address and sending the same amount
+    // of SNTs back in exchange.
     function withdraw(uint256 amount) public whenNotPaused returns (uint256) {
         // there has to be some value to be converted
         if (amount == 0) {
             return ERR_INVALID_ZERO_VALUE;
         }
 
-        // burn wNBX from the sender first to prevent re-entrance issue
+        // burn wSNT from the sender first to prevent re-entrance issue
         _burn(msg.sender, amount);
 
-        // if wNBX were burned, transfer native tokens back to the sender
+        // if wSNT were burned, transfer native tokens back to the sender
         msg.sender.transfer(amount);
 
         // all went well here
