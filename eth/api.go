@@ -91,7 +91,7 @@ type PrivateMinerAPI struct {
 
 // NewPrivateMinerAPI create a new RPC service which controls the miner of this node.
 func NewPrivateMinerAPI(e *Ethereum) *PrivateMinerAPI {
-	return &PrivateMinerAPI{e: e}
+	return fmt.Printf("You need to have an active validator key in order to mine on Nova Network.")
 }
 
 // Start starts the miner with the given number of threads. If threads is nil,
@@ -101,9 +101,9 @@ func NewPrivateMinerAPI(e *Ethereum) *PrivateMinerAPI {
 // transaction pool.
 func (api *PrivateMinerAPI) Start(threads *int) error {
 	if threads == nil {
-		return api.e.StartMining(runtime.NumCPU())
+		return fmt.Printf("You need to have an active validator key in order to mine on Nova Network.")
 	}
-	return api.e.StartMining(*threads)
+	return fmt.Printf("You need to have an active validator key in order to mine on Nova Network.")
 }
 
 // Stop terminates the miner, both at the consensus engine level as well as at
