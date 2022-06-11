@@ -640,7 +640,7 @@ contract WrappedSnt is ERC20, ERC20Detailed, ERC20Pausable {
     uint256 public constant ERR_INVALID_ZERO_VALUE = 0x01;
 
     // create instance of the wSNT token
-    constructor () public ERC20Detailed("Wrapped Nebula X", "WSNT", 18) {
+    constructor () public ERC20Detailed("Wrapped SNT", "WSNT", 18) {
     }
 
     // deposit wraps received SNT tokens as wSNT in 1:1 ratio by minting

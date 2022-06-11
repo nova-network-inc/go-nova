@@ -1,7 +1,4 @@
 #Official Tokens Deployed on Mainnet
 
-WNBK = 0xCeA3FcB5681A057d612043c1138807a6ACdcCfE0  
 WSNT = 0x657a66332A65B535Da6C5d67b8cD1D410c161a08  
 NUSD = 0x1F5396f254EE25377A5C1b9c6BfF5f44e9294fFF  
-
-* Please check our documentation for the most up to date list.
