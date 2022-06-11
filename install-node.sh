@@ -82,6 +82,7 @@ sudo apt-get install ethereum
 
 # Install Golang to be able to build Go Nova.
 echo "Installing 2/5 - Installing Golang..."
+sudo add-apt-repository ppa:longsleep/golang-backports
 sudo apt update
 sudo apt upgrade
 sudo apt install golang-go
