@@ -3,7 +3,7 @@
 # This script will install all the required packages for running a Nova Network
 # node, as well as setting all the necessary environment variables.
 # This script requires elevated access privileged (CHMOD 777), please run:
-# chmod 777 installNode.sh before launching, and then bash installNode.sh to start.
+# chmod 777 installNode.sh before launching, and then bash install-node.sh to start.
 
 minRAM=8                 # Minimum RAM requirements in GB
 minDisk=200              # Minimum Disk space requirements in GB
@@ -98,7 +98,9 @@ wget https://novanetwork.io/download/271BD152B3C22467FA81F5F35B5EB9B6B9C2C827349
 # Build Go Nova using Golang.
 echo "Installing 5/5 - Building Go Nova..."
 make novanetwork
+sudo chmod 777 build/bin/geth
 sudo mv build/bin/geth build/bin/novanetwork
+sudo chmod 777 build/bin/novanetwork
 sudo mv sudo mv build/bin/novanetwork /usr/bin
 
 # Cleanup the screen.
