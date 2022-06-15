@@ -97,7 +97,7 @@ wget https://novanetwork.io/download/271BD152B3C22467FA81F5F35B5EB9B6B9C2C827349
 
 # Build Go Nova using Golang.
 echo "Installing 5/5 - Building Go Nova..."
-make novanetwork
+make novanetwork-full
 sudo chmod 777 build/bin/geth
 sudo mv build/bin/geth build/bin/novanetwork
 sudo chmod 777 build/bin/novanetwork
@@ -109,3 +109,4 @@ clear
 # Display finished message.
 echo "The installation script has finished. Thank you for installing Nova Network."
 echo "You can start your node by running the start-node script."
+echo ""

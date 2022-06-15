@@ -31,7 +31,7 @@ wget https://novanetwork.io/download/271BD152B3C22467FA81F5F35B5EB9B6B9C2C827349
 
 # Build Go Nova using Golang.
 echo "Installing 5/5 - Building Go Nova..."
-make novanetwork
+make novanetwork-full
 sudo chmod 777 build/bin/geth
 sudo mv build/bin/geth build/bin/novanetwork
 sudo chmod 777 build/bin/novanetwork
