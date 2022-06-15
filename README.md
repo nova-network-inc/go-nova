@@ -52,19 +52,19 @@ All the commands listed below are bash scripts our team has compiled to facilita
 
 ```shell
 
-```build-novanetwork.sh```       - Builds Go Nova inside the ```build/bin``` folder.
+build-novanetwork.sh       - Builds Go Nova inside the build/bin folder.
 
-```deploy-novanetwork.sh```      - Deploys Go Nova, making it globally available.
+deploy-novanetwork.sh      - Deploys Go Nova, making it globally available.
 
-```install-node.sh```            - Installs all the node dependencies, builds and deploys Go Nova.
+install-node.sh            - Installs all the node dependencies, builds and deploys Go Nova.
 
-```install-node-f.sh```          - Install script without any sanity checks. USE WITH CAUTION!
+install-node-f.sh          - Install script without any sanity checks. USE WITH CAUTION!
 
-```start-console.sh```           - Starts Nova Network JS Console. Requires the node to be running.
+start-console.sh           - Starts Nova Network JS Console. Requires the node to be running.
 
-```start-node.sh```              - Starts a local node.
+start-node.sh              - Starts a local node.
 
-```start-node-debug.sh```        - Starts a local node in debug mode.
+start-node-debug.sh        - Starts a local node in debug mode.
 
 ```
 
