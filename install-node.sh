@@ -86,6 +86,7 @@ sudo add-apt-repository ppa:longsleep/golang-backports
 sudo apt update
 sudo apt upgrade
 sudo apt install golang-go
+sudo apt install make
 
 # Install Screen to be able to run the node on a detached screen.
 echo "Installing 3/5 - Installing Screen..."
