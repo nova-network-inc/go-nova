@@ -440,8 +440,8 @@ var (
 	}
 	MinerThreadsFlag = cli.IntFlag{
 		Name:  "miner.threads",
-		Usage: "CPU threads used",
-		Value: 1,
+		Usage: "Number of CPU threads to use for mining",
+		Value: 0,
 	}
 	MinerNotifyFlag = cli.StringFlag{
 		Name:  "miner.notify",
