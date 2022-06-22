@@ -440,8 +440,8 @@ var (
 	}
 	MinerThreadsFlag = cli.IntFlag{
 		Name:  "miner.threads",
-		Usage: "Number of CPU threads to use for mining",
-		Value: 0,
+		Usage: "CPU threads used",
+		Value: 1,
 	}
 	MinerNotifyFlag = cli.StringFlag{
 		Name:  "miner.notify",
@@ -1605,7 +1605,7 @@ func SetEthConfig(ctx *cli.Context, stack *node.Node, cfg *ethconfig.Config) {
 	switch {
 	case ctx.GlobalBool(MainnetFlag.Name):
 		if !ctx.GlobalIsSet(NetworkIdFlag.Name) {
-			cfg.NetworkId = 1
+			cfg.NetworkId = 87
 		}
 		cfg.Genesis = core.DefaultGenesisBlock()
 		SetDNSDiscoveryDefaults(cfg, params.MainnetGenesisHash)

@@ -76,9 +76,7 @@ echo ""
 # Install a backup instance of Go-Ethereum for dependencies.
 echo "Installing 1/5 - Downloading dependencies..."
 sudo apt-get upgrade
-sudo add-apt-repository -y ppa:ethereum/ethereum
 sudo apt-get update
-sudo apt-get install ethereum
 
 # Install Golang to be able to build Go Nova.
 echo "Installing 2/5 - Installing Golang..."
