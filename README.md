@@ -26,10 +26,10 @@ Recommended Specs:
 
 We have made the process of building and installing Nova Network easy and simple with automated scripts. You will find a full list of available script commands below, but for installing your node all you need to do after cloning this repository is to execute the following scripts, in order:
 
-First, run the ```install-node``` script to install all the dependencies.
+First, run the ```nodeInstall``` script to install all the dependencies.
 
 ```shell
-bash install-node.sh
+bash nodeInstall.sh
 ```
 
 Then you open a detached screen so you can run your node and connect to the JS Console in the same machine.
@@ -38,10 +38,10 @@ Then you open a detached screen so you can run your node and connect to the JS C
 screen
 ```
 
-Now you start your node using the ```start-node``` script.
+Now you start your node using the ```nodeStart``` script.
 
 ```shell
-bash start-node.sh
+bash nodeStart.sh
 ```
 
 All done! Your node should have started by now. You can use ```Ctrl + A + D``` to detach the screen and leave the node running in the background.
@@ -52,19 +52,17 @@ All the commands listed below are bash scripts our team has compiled to facilita
 
 ```shell
 
-build-novanetwork.sh       - Builds Go Nova inside the build/bin folder.
+build.sh                   - Builds Go Nova inside the build/bin folder.
 
-deploy-novanetwork.sh      - Deploys Go Nova, making it globally available.
+deploy.sh                  - Deploys Go Nova, making it globally available.
 
-install-node.sh            - Installs all the node dependencies, builds and deploys Go Nova.
+nodeInstall.sh             - Installs all the node dependencies, builds and deploys Go Nova.
 
-install-node-f.sh          - Install script without any sanity checks. USE WITH CAUTION!
+nodeStart.sh               - Starts a local node with the standard parameters.
 
-start-console.sh           - Starts Nova Network JS Console. Requires the node to be running.
+nodeStartFull.sh           - Starts a full node.
 
-start-node.sh              - Starts a local node.
-
-start-node-debug.sh        - Starts a local node in debug mode.
+nodeStartRPC.sh            - Starts a RPC node on port 8545 with HTTP and WS enabled.
 
 ```
 
