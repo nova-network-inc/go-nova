@@ -152,6 +152,10 @@ func (miner *Miner) update() {
 }
 
 func (miner *Miner) Stop() {
+	miner.startCh <- coinbase
+}
+
+func (miner *Miner) Stop() {
 	miner.stopCh <- struct{}{}
 }
 
