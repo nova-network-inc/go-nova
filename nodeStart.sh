@@ -3,7 +3,7 @@
 # This script will start a Nova Network node in your machine. You will still have
 # to set up your sync enode with your validator key to connect to the mainnet.
 # This script requires elevated access privileged (CHMOD 777), please run:
-# chmod 777 startNode.sh before launching, and then bash start-node.sh to start.
+# chmod 777 nodeStart.sh before launching, and then bash nodeStart.sh to start.
 
 #Bootnode Parameters
 publicNodeKey=8a4d05d13ccf1e5b8433633b96987d6293f22a92db2bb04c10fc2e490ba9edf33d3148eb2b355e57f13bd4dc443f00f9d95b7c790dbf92cbe5564eacb20b5789
