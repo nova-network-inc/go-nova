@@ -8,7 +8,7 @@
 minRAM=8                 # Minimum RAM requirements in GB
 minDisk=200              # Minimum Disk space requirements in GB
 reqOS=Ubuntu             # Required OS
-minOSver=18.04           # Minimum OS version
+minOSver=20.04           # Minimum OS version
 
 # Welcoming message.
 echo "Welcome to Nova Netowrk Installation Script"
