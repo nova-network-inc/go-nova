@@ -18,4 +18,4 @@ echo ""
 
 # Starting Nova Network
 echo "Starting 2/2 - Starting your Nova Network RPC node..."
-novanetwork --datadir .dag --networkid "87" --rpc.allow-unprotected-txs --nodiscover --maxpeers "1" --syncmode "full" --ipcdisable --bootnodes "enode://${publicNodeKey}@${publicNodeIp}:${publicNodePort}" --graphql --http.port "8545" --http --http.addr "0.0.0.0" --http.corsdomain "*" --http.vhosts "*" --http.api "eth,net,web3"  --ws --ws.addr "0.0.0.0" --ws.origins "*" --ws.api "eth,net,web3" --miner.etherbase "0x000000000000000000000000000000000000dEaD"
+novanetwork --datadir .dag --networkid "87" --config "novanetwork.toml" --rpc.allow-unprotected-txs --nodiscover --maxpeers "1" --syncmode "full" --ipcdisable --bootnodes "enode://${publicNodeKey}@${publicNodeIp}:${publicNodePort}" --graphql --http.port "8545" --http --http.addr "0.0.0.0" --http.corsdomain "*" --http.vhosts "*" --http.api "eth,net,web3"  --ws --ws.addr "0.0.0.0" --ws.origins "*" --ws.api "eth,net,web3" --miner.etherbase "0x000000000000000000000000000000000000dEaD"
