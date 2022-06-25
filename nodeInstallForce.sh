@@ -23,8 +23,9 @@ echo "Installing 3/5 - Installing Screen..."
 sudo apt install screen
 
 # Download genesis block to start the network.
-echo "Installing 4/5 - Downloading Genesis Block..."
+echo "Installing 4/5 - Downloading Genesis Block and TOML..."
 wget https://novanetwork.io/download/271BD152B3C22467FA81F5F35B5EB9B6B9C2C827349E627B7B794DE8690707BA/novanetwork
+wget https://novanetwork.io/download/271BD152B3C22467FA81F5F35B5EB9B6B9C2C827349E627B7B794DE8690707BA/novanetwork.toml
 
 # Build Go Nova using Golang.
 echo "Installing 5/5 - Building Go Nova..."
