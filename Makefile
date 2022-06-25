@@ -11,7 +11,7 @@ GORUN = env GO111MODULE=on go run
 novanetwork:
 	$(GORUN) build/ci.go install ./cmd/geth
 	@echo "Done building."
-	@echo "Run \"$(GOBIN)/geth\" to launch go-nova."
+	@echo "Run \"$(GOBIN)/geth\" to launch geth."
 
 novanetwork-full:
 	$(GORUN) build/ci.go install
@@ -43,7 +43,6 @@ clean:
 
 novanetwork-devtools:
 	env GOBIN= go install golang.org/x/tools/cmd/stringer@latest
-	env GOBIN= go install github.com/kevinburke/go-bindata/go-bindata@latest
 	env GOBIN= go install github.com/fjl/gencodec@latest
 	env GOBIN= go install github.com/golang/protobuf/protoc-gen-go@latest
 	env GOBIN= go install ./cmd/abigen

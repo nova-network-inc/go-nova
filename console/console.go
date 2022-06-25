@@ -20,7 +20,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 	"os/signal"
 	"path/filepath"
@@ -158,7 +157,7 @@ func (c *Console) init(preload []string) error {
 
 	// Configure the input prompter for history and tab completion.
 	if c.prompter != nil {
-		if content, err := ioutil.ReadFile(c.histPath); err != nil {
+		if content, err := os.ReadFile(c.histPath); err != nil {
 			c.prompter.SetHistory(nil)
 		} else {
 			c.history = strings.Split(string(content), "\n")
@@ -179,12 +178,10 @@ func (c *Console) initConsoleObject() {
 }
 
 func (c *Console) initWeb3(bridge *bridge) error {
-	bnJS := string(deps.MustAsset("bignumber.js"))
-	web3JS := string(deps.MustAsset("web3.js"))
-	if err := c.jsre.Compile("bignumber.js", bnJS); err != nil {
+	if err := c.jsre.Compile("bignumber.js", deps.BigNumberJS); err != nil {
 		return fmt.Errorf("bignumber.js: %v", err)
 	}
-	if err := c.jsre.Compile("web3.js", web3JS); err != nil {
+	if err := c.jsre.Compile("web3.js", deps.Web3JS); err != nil {
 		return fmt.Errorf("web3.js: %v", err)
 	}
 	if _, err := c.jsre.Run("var Web3 = require('web3');"); err != nil {
@@ -316,17 +313,17 @@ func (c *Console) AutoCompleteInput(line string, pos int) (string, []string, str
 // Welcome show summary of current Geth instance and some metadata about the
 // console's available modules.
 func (c *Console) Welcome() {
-	message := "Welcome to the Nova Network JavaScript Console!\n\n"
+	message := "Welcome to the Nova Network JavaScript console!\n\n"
 
 	// Print some generic Geth metadata
 	if res, err := c.jsre.Run(`
-		var message = "Instance: " + web3.version.node + "\n";
+		var message = "instance: " + web3.version.node + "\n";
 		try {
-			message += "Coinbase: " + eth.coinbase + "\n";
+			message += "coinbase: " + eth.coinbase + "\n";
 		} catch (err) {}
-		message += "Block Number: " + eth.blockNumber + " (" + new Date(1000 * eth.getBlock(eth.blockNumber).timestamp) + ")\n";
+		message += "at block: " + eth.blockNumber + " (" + new Date(1000 * eth.getBlock(eth.blockNumber).timestamp) + ")\n";
 		try {
-			message += "Datadir: " + admin.datadir + "\n";
+			message += " datadir: " + admin.datadir + "\n";
 		} catch (err) {}
 		message
 	`); err == nil {
@@ -339,9 +336,9 @@ func (c *Console) Welcome() {
 			modules = append(modules, fmt.Sprintf("%s:%s", api, version))
 		}
 		sort.Strings(modules)
-		message += "Available Modules: " + strings.Join(modules, " ") + "\n"
+		message += " modules: " + strings.Join(modules, " ") + "\n"
 	}
-	message += "\nTo exit, press Ctrl+D or type exit."
+	message += "\nTo exit, press ctrl-d or type exit"
 	fmt.Fprintln(c.printer, message)
 }
 
@@ -543,11 +540,6 @@ func countIndents(input string) int {
 	return indents
 }
 
-// Execute runs the JavaScript file specified as the argument.
-func (c *Console) Execute(path string) error {
-	return c.jsre.Exec(path)
-}
-
 // Stop cleans up the console and terminates the runtime environment.
 func (c *Console) Stop(graceful bool) error {
 	c.stopOnce.Do(func() {
@@ -561,7 +553,7 @@ func (c *Console) Stop(graceful bool) error {
 }
 
 func (c *Console) writeHistory() error {
-	if err := ioutil.WriteFile(c.histPath, []byte(strings.Join(c.history, "\n")), 0600); err != nil {
+	if err := os.WriteFile(c.histPath, []byte(strings.Join(c.history, "\n")), 0600); err != nil {
 		return err
 	}
 	return os.Chmod(c.histPath, 0600) // Force 0600, even if it was different previously
