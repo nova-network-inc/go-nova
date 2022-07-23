@@ -33,7 +33,7 @@ make novanetwork-full
 sudo chmod 777 build/bin/geth
 sudo mv build/bin/geth build/bin/novanetwork
 sudo chmod 777 build/bin/novanetwork
-sudo mv sudo mv build/bin/novanetwork /usr/bin
+sudo mv build/bin/novanetwork /usr/bin
 
 # Cleanup the screen.
 clear
