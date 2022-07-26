@@ -60,9 +60,13 @@ nodeInstall.sh             - Installs all the node dependencies, builds and depl
 
 nodeStart.sh               - Starts a local node with the standard parameters.
 
+nodeStartLight.sh          - Starts a light node. Great for lightweight hardware.
+
 nodeStartFull.sh           - Starts a full node.
 
 nodeStartRPC.sh            - Starts a RPC node on port 8545 with HTTP and WS enabled.
+
+nodeStartRPCArchive.sh    - Starts an archive node with RPC enabled.
 
 ```
 
